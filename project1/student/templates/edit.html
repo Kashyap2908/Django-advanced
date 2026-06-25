@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(to right, #4facfe, #00f2fe);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:white;
+            width:450px;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#444;
+            display:block;
+            margin-top:12px;
+            margin-bottom:5px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        button{
+            width:100%;
+            margin-top:20px;
+            padding:12px;
+            border:none;
+            border-radius:5px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Update Student</h1>
+
+        <form action="#" method="post">
+            {% csrf_token %}
+
+            <label>Name</label>
+            <input type="text" name="name" value="{{ d.name }}">
+
+            <label>Enrollment</label>
+            <input type="text" name="enroll" value="{{ d.enroll }}">
+
+            <label>Date of Birth</label>
+            <input type="date" name="dob" value="{{ d.dob|date:'Y-m-d' }}">
+
+            <label>Project Title</label>
+            <input type="text" name="projectTitle" value="{{ d.projectTitle }}">
+
+            <button type="submit">Save Changes</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

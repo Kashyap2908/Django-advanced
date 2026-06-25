@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Projects</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+            color:#2c3e50;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        th{
+            background:#3498db;
+            color:white;
+            padding:15px;
+            font-size:18px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background:#f8f9fa;
+        }
+
+        tr:hover{
+            background:#d6eaf8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Project Details</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Enrollment</th>
+            <th>Date of Birth</th>
+            <th>Project Title</th>
+            <th>Edit Details</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for i in s %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.enroll }}</td>
+            <td>{{ i.dob }}</td>
+            <td>{{ i.projectTitle }}</td>
+            <td><a href="{% url "edit" i.id %}">Edit</a></td>
+            <td><a href="{% url "delete" i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
