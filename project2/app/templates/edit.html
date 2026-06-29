@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    .form-container{
+        width:450px;
+        margin:40px auto;
+        background:white;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        text-align:center;
+        margin-bottom:20px;
+        color:#333;
+    }
+
+    label{
+        display:block;
+        margin-top:15px;
+        margin-bottom:5px;
+        font-weight:bold;
+        color:#444;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"]{
+        width:100%;
+        padding:10px;
+        border:1px solid #ccc;
+        border-radius:5px;
+        font-size:15px;
+    }
+
+    input[type="submit"]{
+        width:100%;
+        margin-top:20px;
+        padding:12px;
+        background:#2563eb;
+        color:white;
+        border:none;
+        border-radius:5px;
+        font-size:16px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    input[type="submit"]:hover{
+        background:#1d4ed8;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="form-container">
+
+    <h2>Edit Student</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="name" value="{{ d.name }}">
+
+        <label>Roll No</label>
+        <input type="number" name="roll" value="{{ d.roll }}">
+
+        <label>Enrollment</label>
+        <input type="text" name="enroll" value="{{ d.enroll }}">
+
+        <label>Project Title</label>
+        <input type="text" name="title" value="{{ d.title }}">
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob" value="{{ d.dob|date:'Y-m-d' }}">
+
+        <input type="submit" value="Update Student">
+    </form>
+
+</div>
+{% endblock content %}

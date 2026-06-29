@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    body{
+        background:#f4f6f9;
+        font-family:Arial, sans-serif;
+    }
+
+    .table-container{
+        width:90%;
+        margin:40px auto;
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        text-align:center;
+        margin-bottom:20px;
+        color:#333;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+    }
+
+    thead{
+        background:#2563eb;
+        color:white;
+    }
+
+    th, td{
+        padding:12px;
+        text-align:center;
+        border:1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even){
+        background:#f8f9fa;
+    }
+
+    tbody tr:hover{
+        background:#dbeafe;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="table-container">
+
+    <h2>Student Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Enrollment</th>
+                <th>Project Title</th>
+                <th>Date of Birth</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in ob %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.roll }}</td>
+                <td>{{ i.enroll }}</td>
+                <td>{{ i.title }}</td>
+                <td>{{ i.dob }}</td>
+                <td><a href="{% url "edit" i.id %}">Edit</a></td>
+                <td><a href="{% url "delete" i.id %}">Delete</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No student records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    body{
+        background:#f4f6f9;
+        font-family:Arial, sans-serif;
+    }
+
+    .form-container{
+        width:450px;
+        margin:50px auto;
+        background:#fff;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        text-align:center;
+        color:#333;
+        margin-bottom:20px;
+    }
+
+    label{
+        display:block;
+        margin-top:12px;
+        font-weight:bold;
+        color:#444;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"]{
+        width:100%;
+        padding:10px;
+        margin-top:5px;
+        border:1px solid #ccc;
+        border-radius:5px;
+        font-size:15px;
+    }
+
+    input[type="submit"]{
+        width:100%;
+        margin-top:20px;
+        padding:12px;
+        background:#2563eb;
+        color:white;
+        border:none;
+        border-radius:5px;
+        font-size:16px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    input[type="submit"]:hover{
+        background:#1d4ed8;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="form-container">
+
+    <h2>Add Student</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="name">
+
+        <label>Roll No</label>
+        <input type="number" name="roll">
+
+        <label>Enrollment</label>
+        <input type="text" name="enroll">
+
+        <label>Project Title</label>
+        <input type="text" name="title">
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob">
+
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+{% endblock content %}
