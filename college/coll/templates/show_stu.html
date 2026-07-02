@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 8px 0;
+        }
+        .card-meta {
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 16px;
+        }
+        .card-body {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        {% for i in data %}
+        <div class="card">
+            <h2 class="card-title">{{ i.name }}</h2>
+            <div class="card-meta">Enrolment: {{ i.eno }}</div>
+            <div class="card-body">
+                <div><span class="info-label">Email:</span> {{ i.email }}</div>
+                <div><span class="info-label">Department:</span> {{ i.deparment }}</div>
+            </div>
+            {% if i.image %}
+            <img src={{i.image.url}}>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
