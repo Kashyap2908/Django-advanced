@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="#" method='post'>
+        {% csrf_token %}
+        Name: <input type="text" name="name" id="" /><br><br>
+        Country: <input type="text" name="country" id="" /><br><br>
+        Batting Style: <input type="text" name="batting_style" id="" /><br><br>
+        Bowling Style: <input type="text" name="bowling_style" id="" /><br><br>
+        Age: <input type="number" name="age" id=""><br><br>
+        runs: <input type="number" name="runs" id=""><br><br>
+        Wickets: <input type="number" name="wickets" id=""><br><br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock content %}

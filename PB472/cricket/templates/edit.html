@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="#" method='post'>
+        {% csrf_token %}
+        Name: <input type="text" name="name" id="" value={{p.name}} /><br><br>
+        Country: <input type="text" name="country" id="" value={{p.country}} /><br><br>
+        Batting Style: <input type="text" name="batting_style" id="" value={{p.batting_style}} /><br><br>
+        Bowling Style: <input type="text" name="bowling_style" id="" value={{p.bowling_style}} /><br><br>
+        Age: <input type="number" name="age" id="" value={{p.age}}><br><br>
+        runs: <input type="number" name="runs" id="" value={{p.runs}}><br><br>
+        Wickets: <input type="number" name="wickets" id="" value={{p.wickets}}><br><br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock content %}

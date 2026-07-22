@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block css %}
+<style>
+    table{
+        width: 80%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    thead{
+        background: #2c3e50;
+        color: white;
+    }
+
+    th,
+    td{
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even){
+        background: #f8f9fa;
+    }
+
+    tbody tr:hover{
+        background: #eaf4ff;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    td:nth-child(4) a{
+        background: #28a745;
+    }
+
+    td:nth-child(4) a:hover{
+        background: #218838;
+    }
+
+    td:nth-child(5) a{
+        background: #dc3545;
+    }
+
+    td:nth-child(5) a:hover{
+        background: #c82333;
+    }
+</style>
+{% endblock %}
+</head>
+<body>
+    {% block content %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in students %}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.roll_no}}</td>
+                        <td>{{i.city}}</td>
+                        <td><a href="{% url 'edit' i.id %}">Edit</a></td>
+                        <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+</body>
+</html>

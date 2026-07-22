@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Player Name: <p>{{p.name}}</p><br><br>
+    Country: <p>{{p.country}}</p><br><br>
+    Batting Style: <p>{{p.batting_style}}</p><br><br>
+    Bowling Style: <p>{{p.bowling_style}}</p><br><br>
+    Age: <p>{{p.age}}</p><br><br>
+    Runs: <p>{{p.runs}}</p><br><br>
+    Wickets: <p>{{p.wickets}}</p><br><br>
+    
+    <button><a href="{% url 'edit' p.id %}">Edit</a></button><br><br>
+    <button><a href="{% url 'delete' p.id %}">Delete</a></button>
+{% endblock content %}
